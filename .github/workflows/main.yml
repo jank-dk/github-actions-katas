@@ -33,6 +33,11 @@ jobs:
     permissions:
       packages: write
     steps:
+      - name: Download code
+        uses: actions/download-artifact@v2
+        with:
+          name: code
+          path: .
       - name: Build docker image
         run: ci/build-docker.sh
       - name: Push docker image
